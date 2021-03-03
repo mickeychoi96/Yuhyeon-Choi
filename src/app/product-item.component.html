@@ -1,0 +1,25 @@
+<h2>List of Items</h2>
+<ul>
+  <li *ngFor="let item of items" (click)="onSelect(item)">
+    <span>{{item.rating}}</span> {{item.name}}
+  </li>
+</ul>
+
+<div *ngIf="selectedItem">
+
+  <h2>{{selectedItem.name | uppercase}} Details</h2>
+  <div><span>image: </span><a [href]="selectedItem.link"><img [src]="selectedItem.image"></a></div>
+  <div>
+    <span>name: </span>{{selectedItem.name}}<br>
+    <span>description: </span>{{selectedItem.description}}<br>
+    <span>rating: </span>{{selectedItem.rating}}<br>
+    <share-buttons
+      [include]="['whatsapp', 'telegram']"
+      [show]="2"
+      [size]="1"
+      [url]="selectedItem.link"
+      [autoSetMeta]="false"
+      [showText]="true"></share-buttons>
+  </div>
+
+</div>
