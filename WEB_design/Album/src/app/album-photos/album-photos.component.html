@@ -1,0 +1,8 @@
+<h2>Album photo</h2>
+
+<div *ngIf="album">
+  <img [src]="album.thumbnailUrl">
+  <h3>Album ID : {{ album.id }}</h3>
+  <h3>Album Title : {{ album.title }}</h3>
+</div>
+<button (click)="goBack()">go back</button>
